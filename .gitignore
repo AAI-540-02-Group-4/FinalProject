@@ -1,0 +1,11 @@
+# Datasets - too large for GitHub
+chest_xray/
+rsna/
+
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
