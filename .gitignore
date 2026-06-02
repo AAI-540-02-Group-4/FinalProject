@@ -2,7 +2,7 @@
 # Datasets - too large for GitHub
 chest_xray/
 rsna/
-
+*.csv
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
