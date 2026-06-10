@@ -3,6 +3,9 @@ import numpy as np
 from cloudpathlib import S3Path
 import pydicom
 from config import IMG_SIZE
+import boto3
+
+s3 = boto3.client("s3")
 
 
 def read_s3_img(s3_img_path: S3Path) -> np.ndarray | None:
@@ -24,6 +27,22 @@ def read_s3_img(s3_img_path: S3Path) -> np.ndarray | None:
     elif s3_img_path.suffix == '.jpeg':
         img = cv2.imread(s3_img_path, 0)
         return img
+
+
+def load_image_from_s3(s3_key, bucket):
+    """Load image from S3 - handles both JPEG and DICOM"""
+    response = s3.get_object(Bucket=bucket, Key=s3_key)
+    img_bytes = response["Body"].read()
+
+    if s3_key.endswith(".dcm"):
+        ds = pydicom.dcmread(io.BytesIO(img_bytes))
+        img = ds.pixel_array
+    else:
+        img_array = np.frombuffer(img_bytes, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_GRAYSCALE)
+
+    return img.astype(float32)
+
 
 def normalize_to_uint8(img: np.ndarray) -> np.ndarray:
     """
