@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-# Datasets - too large for GitHub
+# --- Project-specific ---
+# Datasets are too large for GitHub; they live in S3 / Kaggle cache.
 chest_xray/
 rsna/
 *.csv
 
-# Jupyter checkpoints
-.ipynb_checkpoints/
-
-# Python cache
-__pycache__/
-*.pyc
-=======
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -229,4 +222,3 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
->>>>>>> 272088954ad64059effa94936484eb3d9ec2a044
