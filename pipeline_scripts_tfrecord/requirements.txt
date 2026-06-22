@@ -1,0 +1,5 @@
+tf2onnx>=1.16
+onnx>=1.14
+# inference.py imports PIL to decode incoming PNG bytes for BatchTransform / endpoint.
+# The SageMaker TF Serving inference image doesn't ship Pillow by default.
+Pillow>=10.0
