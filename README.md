@@ -24,6 +24,7 @@ Combined total: 33,720 images (22,255 Normal / 11,465 Pneumonia)
  
 ## Architecture
  
+<img width="850" height="1971" alt="pneumonia_architecture" src="https://github.com/user-attachments/assets/10a39263-c0e4-437a-a829-5e7a593930d7" />
 
 
 
@@ -48,9 +49,8 @@ Combined total: 33,720 images (22,255 Normal / 11,465 Pneumonia)
 - **Class Weights:** inverse-frequency weighting to handle ~2:1 Normal to Pneumonia imbalance
 - **Classification Threshold:** 0.4 (lowered from 0.5 to prioritize recall — missed pneumonia is more dangerous than a false alarm)
 - **Deployment:** Keras model converted to ONNX format (tf2onnx) due to SageMaker container compatibility issues, deployed with custom inference script on SKLearn container
-## Results
- 
 
+ 
 ## Repository Structure
  
 ```
